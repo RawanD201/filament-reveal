@@ -442,6 +442,22 @@ All existing tokens become invalid immediately (they fail decryption). New token
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
 
+## Compatibility
+
+- **PHP**: ^8.2
+- **Laravel**: 10.x / 11.x / 12.x / 13.x
+- **Filament**: ^4.0 \| ^5.0
+
+## Support
+
+- **Bug reports & feature requests**: please use GitHub Issues.
+- **Security reports**: please follow [SECURITY](SECURITY.md) (do not disclose publicly).
+
+## Upgrade guide
+
+- **Patch/minor releases** (e.g. `1.0.x` → `1.1.x`): update via Composer as usual.
+- **Major releases** (e.g. `1.x` → `2.x`): check [CHANGELOG](CHANGELOG.md) for breaking changes and upgrade notes.
+
 ## Contributing
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
