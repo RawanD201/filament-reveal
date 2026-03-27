@@ -21,6 +21,5 @@ class ColumnRevealFailed
         public string $reason,
         public ?string $ipAddress = null,
         public ?array $metadata = null
-    ) {
-    }
+    ) {}
 }

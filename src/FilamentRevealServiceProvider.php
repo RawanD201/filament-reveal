@@ -57,11 +57,11 @@ class FilamentRevealServiceProvider extends PackageServiceProvider
         FilamentAsset::register([
             Css::make(
                 'filament-reveal-styles',
-                __DIR__ . '/../public/css/filament-reveal.css'
+                __DIR__.'/../public/css/filament-reveal.css'
             ),
             Js::make(
                 'filament-reveal-scripts',
-                __DIR__ . '/../public/js/filament-reveal.js'
+                __DIR__.'/../public/js/filament-reveal.js'
             ),
         ], package: 'rawand201/filament-reveal');
     }

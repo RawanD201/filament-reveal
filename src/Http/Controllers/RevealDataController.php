@@ -7,14 +7,13 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\ValidationException;
-use Rawand\FilamentReveal\Concerns\HasRevealableColumns;
-use Rawand\FilamentReveal\Support\RevealTokenGenerator;
 use Illuminate\Support\Facades\RateLimiter;
+use Illuminate\Support\Facades\Validator;
+use Rawand\FilamentReveal\Concerns\HasRevealableColumns;
 use Rawand\FilamentReveal\Events\ColumnRevealed;
 use Rawand\FilamentReveal\Events\ColumnRevealFailed;
 use Rawand\FilamentReveal\Events\UnauthorizedRevealAttempt;
+use Rawand\FilamentReveal\Support\RevealTokenGenerator;
 
 /**
  * Controller for securely revealing sensitive column data
@@ -29,20 +28,21 @@ class RevealDataController extends Controller
         // Verify authentication
         $user = $this->getAuthenticatedUser();
 
-        if (!$user) {
+        if (! $user) {
             return $this->errorResponse('Unauthenticated', 401);
         }
 
         // Rate limiting
         $rateLimitConfig = config('filament-reveal.rate_limit');
         if ($rateLimitConfig) {
-            $key = 'reveal-column:' . $user->id;
+            $key = 'reveal-column:'.$user->id;
             $maxAttempts = $rateLimitConfig['max_attempts'] ?? 10;
             $decayMinutes = $rateLimitConfig['decay_minutes'] ?? 1;
 
             if (RateLimiter::tooManyAttempts($key, $maxAttempts)) {
                 $seconds = RateLimiter::availableIn($key);
                 $this->logFailedAttempt($user, 'Rate limit exceeded', $request);
+
                 return $this->errorResponse("Too many requests. Try again in {$seconds} seconds.", 429);
             }
             RateLimiter::hit($key, $decayMinutes * 60);
@@ -52,7 +52,7 @@ class RevealDataController extends Controller
         $validated = $this->validateRequest($request);
         $params = RevealTokenGenerator::decode($validated['token']);
 
-        if (!$params) {
+        if (! $params) {
             return $this->errorResponse('Invalid or expired token', 400);
         }
 
@@ -60,46 +60,48 @@ class RevealDataController extends Controller
             // Retrieve model
             $model = $this->getModel($params['model'], $params['record_id']);
 
-            if (!$model) {
+            if (! $model) {
                 return $this->errorResponse('Record not found', 404);
             }
 
             // Check if model uses HasRevealableColumns trait
-            if (!$this->usesRevealableTrait($model)) {
+            if (! $this->usesRevealableTrait($model)) {
                 $this->logFailedAttempt($user, 'Model missing trait', $request, [
                     'model' => get_class($model),
-                    'column' => $params['column_name']
+                    'column' => $params['column_name'],
                 ]);
 
                 if (config('filament-reveal.log_failed_attempts', true)) {
                     \Log::warning('Model does not use HasRevealableColumns trait', [
                         'model' => get_class($model),
-                        'column' => $params['column_name']
+                        'column' => $params['column_name'],
                     ]);
                 }
+
                 return $this->errorResponse('Model does not support column revelation', 403);
             }
 
             // Check if column is revealable
-            if (!$model->isColumnRevealable($params['column_name'])) {
+            if (! $model->isColumnRevealable($params['column_name'])) {
                 $this->logFailedAttempt($user, 'Column not in whitelist', $request, [
                     'model' => get_class($model),
                     'column' => $params['column_name'],
-                    'revealable_columns' => $model->getRevealableColumns()
+                    'revealable_columns' => $model->getRevealableColumns(),
                 ]);
 
                 if (config('filament-reveal.log_failed_attempts', true)) {
                     \Log::warning('Column is not revealable', [
                         'model' => get_class($model),
                         'column' => $params['column_name'],
-                        'revealable_columns' => $model->getRevealableColumns()
+                        'revealable_columns' => $model->getRevealableColumns(),
                     ]);
                 }
+
                 return $this->errorResponse('Column is not revealable', 403);
             }
 
             // Authorize access
-            if (!$model->authorizeRevealColumn($params['column_name'], $user)) {
+            if (! $model->authorizeRevealColumn($params['column_name'], $user)) {
                 // Dispatch security event
                 event(new UnauthorizedRevealAttempt(
                     user: $user,
@@ -117,9 +119,10 @@ class RevealDataController extends Controller
                         'model' => get_class($model),
                         'record_id' => $params['record_id'],
                         'column' => $params['column_name'],
-                        'ip' => $request->ip()
+                        'ip' => $request->ip(),
                     ]);
                 }
+
                 return $this->errorResponse('Unauthorized', 403);
             }
 
@@ -142,7 +145,7 @@ class RevealDataController extends Controller
                     'model' => get_class($model),
                     'record_id' => $params['record_id'],
                     'column' => $params['column_name'],
-                    'ip' => $request->ip()
+                    'ip' => $request->ip(),
                 ]);
             }
 
@@ -189,11 +192,11 @@ class RevealDataController extends Controller
      */
     protected function getModel(string $modelClass, mixed $recordId): ?Model
     {
-        if (!class_exists($modelClass)) {
+        if (! class_exists($modelClass)) {
             throw new \InvalidArgumentException('Invalid model class');
         }
 
-        if (!is_subclass_of($modelClass, Model::class)) {
+        if (! is_subclass_of($modelClass, Model::class)) {
             throw new \InvalidArgumentException('Class is not an Eloquent model');
         }
 

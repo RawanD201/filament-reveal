@@ -22,7 +22,9 @@ class RevealEntry extends Entry
     protected string $view = 'filament-reveal::entries.reveal-entry';
 
     protected string $mask;
+
     protected string $revealedColor;
+
     protected bool|Closure $requiresAuthentication = false;
 
     protected function setUp(): void
@@ -39,30 +41,50 @@ class RevealEntry extends Entry
     public function mask(string $mask): static
     {
         $this->mask = $this->resolveMask($mask);
+
         return $this;
     }
 
-    public function maskBullet(): static  { return $this->mask('bullet'); }
-    public function maskAsterisk(): static { return $this->mask('asterisk'); }
-    public function maskHash(): static     { return $this->mask('hash'); }
+    public function maskBullet(): static
+    {
+        return $this->mask('bullet');
+    }
 
-    public function getMask(): string { return $this->mask; }
+    public function maskAsterisk(): static
+    {
+        return $this->mask('asterisk');
+    }
+
+    public function maskHash(): static
+    {
+        return $this->mask('hash');
+    }
+
+    public function getMask(): string
+    {
+        return $this->mask;
+    }
 
     // ── Revealed color ────────────────────────────────────────────────────────
 
     public function revealedColor(string $color): static
     {
         $this->revealedColor = $color;
+
         return $this;
     }
 
-    public function getRevealedColor(): string { return $this->revealedColor; }
+    public function getRevealedColor(): string
+    {
+        return $this->revealedColor;
+    }
 
     // ── Authentication ────────────────────────────────────────────────────────
 
     public function requiresAuthentication(bool|Closure $required = true): static
     {
         $this->requiresAuthentication = $required;
+
         return $this;
     }
 
@@ -76,10 +98,10 @@ class RevealEntry extends Entry
     private function resolveMask(string $mask): string
     {
         return match ($mask) {
-            'bullet'   => '••••••••',
+            'bullet' => '••••••••',
             'asterisk' => '********',
-            'hash'     => '########',
-            default    => $mask,
+            'hash' => '########',
+            default => $mask,
         };
     }
 }

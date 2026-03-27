@@ -24,6 +24,7 @@ class AuthenticateReveal extends Component implements HasActions, HasForms
     use InteractsWithForms;
 
     public string $columnId = '';
+
     public ?string $token = null;
 
     /**
@@ -61,23 +62,25 @@ class AuthenticateReveal extends Component implements HasActions, HasForms
             ->action(function (array $data, Action $action) {
                 $user = $this->getAuthenticatedUser();
 
-                if (!$user) {
+                if (! $user) {
                     Notification::make()
                         ->title(__('filament-reveal::reveal-column.authentication_failed'))
                         ->body(__('filament-reveal::reveal-column.unauthenticated'))
                         ->danger()
                         ->send();
                     $action->halt();
+
                     return;
                 }
 
-                if (!Hash::check($data['password'], $user->password)) {
+                if (! Hash::check($data['password'], $user->password)) {
                     Notification::make()
                         ->title(__('filament-reveal::reveal-column.authentication_failed'))
                         ->body(__('filament-reveal::reveal-column.authentication_failed'))
                         ->danger()
                         ->send();
                     $action->halt();
+
                     return;
                 }
 

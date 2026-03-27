@@ -6,7 +6,7 @@ use Illuminate\Contracts\Auth\Authenticatable;
 
 /**
  * Trait for models with revealable columns
- * 
+ *
  * Add this trait to your model to define which columns can be revealed
  * and implement custom authorization logic.
  */
@@ -14,8 +14,6 @@ trait HasRevealableColumns
 {
     /**
      * Get the columns that can be revealed
-     * 
-     * @return array
      */
     public function getRevealableColumns(): array
     {
@@ -24,9 +22,6 @@ trait HasRevealableColumns
 
     /**
      * Check if a column is revealable
-     * 
-     * @param string $columnName
-     * @return bool
      */
     public function isColumnRevealable(string $columnName): bool
     {
@@ -35,12 +30,8 @@ trait HasRevealableColumns
 
     /**
      * Authorize access to reveal a column
-     * 
+     *
      * Override this method in your model to implement custom authorization
-     * 
-     * @param string $columnName
-     * @param Authenticatable|null $user
-     * @return bool
      */
     public function authorizeRevealColumn(string $columnName, ?Authenticatable $user = null): bool
     {
@@ -50,13 +41,10 @@ trait HasRevealableColumns
 
     /**
      * Get the value of a revealable column
-     * 
-     * @param string $columnName
-     * @return mixed
      */
     public function getRevealableColumnValue(string $columnName): mixed
     {
-        if (!$this->isColumnRevealable($columnName)) {
+        if (! $this->isColumnRevealable($columnName)) {
             throw new \InvalidArgumentException("Column '{$columnName}' is not revealable.");
         }
 

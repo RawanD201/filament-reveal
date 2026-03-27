@@ -33,7 +33,7 @@ A secure, production-ready Filament package for safely revealing sensitive data 
 
 | | Version |
 |---|---|
-| PHP | ^8.1 |
+| PHP | ^8.2 |
 | Laravel | 10.x / 11.x / 12.x / 13.x |
 | Filament | ^4.0 \| ^5.0 |
 

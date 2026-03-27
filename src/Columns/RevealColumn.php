@@ -7,14 +7,14 @@ use Filament\Tables\Columns\TextColumn;
 
 /**
  * RevealColumn - Secure column for sensitive data
- * 
+ *
  * Features:
  * - Data masked by default with configurable mask character
  * - Toggle visibility with eye icon
  * - Optional password authentication to reveal data
  * - Click revealed text to copy
  * - Search disabled by default for security
- * 
+ *
  * @example
  * RevealColumn::make('password')
  *     ->requiresAuthentication()
@@ -29,8 +29,7 @@ class RevealColumn extends TextColumn
 
     protected string $revealedColor;
 
-    protected bool | Closure $requiresAuthentication = false;
-
+    protected bool|Closure $requiresAuthentication = false;
 
     protected function setUp(): void
     {
@@ -41,7 +40,6 @@ class RevealColumn extends TextColumn
         $this->mask = $this->resolveMaskType($defaultMask);
         $this->revealedColor = config('filament-reveal.revealed_color', 'primary');
         $this->requiresAuthentication = config('filament-reveal.require_authentication', false);
-
 
         // Disable search by default for security
         $this->searchable(false);
@@ -66,6 +64,7 @@ class RevealColumn extends TextColumn
     public function mask(string $mask): static
     {
         $this->mask = $this->resolveMaskType($mask);
+
         return $this;
     }
 
@@ -75,6 +74,7 @@ class RevealColumn extends TextColumn
     public function maskBullet(): static
     {
         $this->mask = '••••••••';
+
         return $this;
     }
 
@@ -84,6 +84,7 @@ class RevealColumn extends TextColumn
     public function maskAsterisk(): static
     {
         $this->mask = '********';
+
         return $this;
     }
 
@@ -93,6 +94,7 @@ class RevealColumn extends TextColumn
     public function maskHash(): static
     {
         $this->mask = '########';
+
         return $this;
     }
 
@@ -110,6 +112,7 @@ class RevealColumn extends TextColumn
     public function revealedColor(string $color): static
     {
         $this->revealedColor = $color;
+
         return $this;
     }
 
@@ -124,9 +127,10 @@ class RevealColumn extends TextColumn
     /**
      * Require password authentication before revealing
      */
-    public function requiresAuthentication(bool | Closure $condition = true): static
+    public function requiresAuthentication(bool|Closure $condition = true): static
     {
         $this->requiresAuthentication = $condition;
+
         return $this;
     }
 

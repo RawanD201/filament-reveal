@@ -1,7 +1,7 @@
 <?php
 
-use Rawand\FilamentReveal\Support\RevealTokenGenerator;
 use Rawand\FilamentReveal\Concerns\HasRevealableColumns;
+use Rawand\FilamentReveal\Support\RevealTokenGenerator;
 
 it('generates a valid encrypted token', function () {
     $token = RevealTokenGenerator::generate('1', 'email', 'App\\Models\\User');
@@ -12,9 +12,9 @@ it('decodes a valid token successfully', function () {
     $token = RevealTokenGenerator::generate('1', 'email', 'App\\Models\\User');
     $payload = RevealTokenGenerator::decode($token);
     expect($payload)->toBeArray()
-        ->and($payload['r'])->toBe('1')
-        ->and($payload['c'])->toBe('email')
-        ->and($payload['m'])->toBe('App\\Models\\User');
+        ->and($payload['record_id'])->toBe('1')
+        ->and($payload['column_name'])->toBe('email')
+        ->and($payload['model'])->toBe('App\\Models\\User');
 });
 
 it('returns null for a tampered token', function () {
@@ -29,8 +29,10 @@ it('generates a consistent obfuscated endpoint', function () {
 });
 
 it('model trait enforces column whitelist', function () {
-    $model = new class {
+    $model = new class
+    {
         use HasRevealableColumns;
+
         protected array $revealableColumns = ['email', 'api_token'];
     };
 

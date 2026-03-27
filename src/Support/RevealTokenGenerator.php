@@ -41,7 +41,7 @@ class RevealTokenGenerator
             $decrypted = Crypt::decryptString($token);
             $payload = json_decode($decrypted, true);
 
-            if (!is_array($payload)) {
+            if (! is_array($payload)) {
                 return null;
             }
 
@@ -52,7 +52,7 @@ class RevealTokenGenerator
             }
 
             // Session binding check — token must belong to the session that created it
-            if (isset($payload['s']) && !hash_equals($payload['s'], self::sessionFingerprint())) {
+            if (isset($payload['s']) && ! hash_equals($payload['s'], self::sessionFingerprint())) {
                 return null;
             }
 
@@ -62,9 +62,9 @@ class RevealTokenGenerator
             }
 
             return [
-                'record_id'   => $payload['r'] ?? null,
+                'record_id' => $payload['r'] ?? null,
                 'column_name' => $payload['c'] ?? null,
-                'model'       => $payload['m'] ?? null,
+                'model' => $payload['m'] ?? null,
             ];
         } catch (\Exception) {
             return null;
@@ -78,7 +78,7 @@ class RevealTokenGenerator
     {
         $hash = hash_hmac('sha256', 'filament-reveal', config('app.key'));
 
-        return url('/x-fr-' . substr($hash, 0, 16));
+        return url('/x-fr-'.substr($hash, 0, 16));
     }
 
     /**
