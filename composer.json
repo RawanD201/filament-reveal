@@ -1,0 +1,73 @@
+{
+    "name": "rawand201/filament-reveal",
+    "type": "library",
+    "description": "A Filament column component for hiding and revealing sensitive data with toggle and copy functionality",
+    "keywords": [
+        "filament",
+        "laravel",
+        "column",
+        "reveal",
+        "hide",
+        "sensitive-data",
+        "password",
+        "secret"
+    ],
+    "homepage": "https://github.com/rawand201/filament-reveal",
+    "license": "MIT",
+    "support": {
+        "issues": "https://github.com/rawand201/filament-reveal/issues",
+        "source": "https://github.com/rawand201/filament-reveal"
+    },
+    "authors": [
+        {
+            "name": "RawanD201",
+            "email": "rawandrasool@proton.me",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "filament/filament": "^4.0|^5.0",
+        "spatie/laravel-package-tools": "^1.15.0",
+        "illuminate/contracts": "^10.0|^11.0|^12.0|^13.0"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.0",
+        "nunomaduro/collision": "^7.9|^8.0",
+        "orchestra/testbench": "^8.0|^9.0|^10.0",
+        "pestphp/pest": "^2.1|^3.0",
+        "pestphp/pest-plugin-arch": "^2.0|^3.0",
+        "pestphp/pest-plugin-laravel": "^2.0|^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Rawand\\FilamentReveal\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Rawand\\FilamentReveal\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage",
+        "format": "vendor/bin/pint"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Rawand\\FilamentReveal\\FilamentRevealServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
