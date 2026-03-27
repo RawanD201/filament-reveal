@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Filament Reveal — Docs</title>
+    <meta name="description" content="Documentation for rawand201/filament-reveal" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=IBM+Plex+Mono:wght@400;600&family=Work+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/github-markdown-css@5.6.1/github-markdown.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/highlight.js@11.10.0/styles/github-dark.min.css"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/highlight.js@11.10.0/styles/github.min.css"
+      media="(prefers-color-scheme: light)"
+    />
+    <style>
+      :root {
+        --bg: #0b0f19;
+        --panel: rgba(255, 255, 255, 0.06);
+        --border: rgba(255, 255, 255, 0.12);
+        --text: rgba(255, 255, 255, 0.92);
+        --muted: rgba(255, 255, 255, 0.72);
+        --accent: #7c3aed;
+        --accent2: #10b981;
+      }
+
+      @media (prefers-color-scheme: light) {
+        :root {
+          --bg: #fbfbfe;
+          --panel: rgba(10, 14, 25, 0.04);
+          --border: rgba(10, 14, 25, 0.12);
+          --text: rgba(10, 14, 25, 0.92);
+          --muted: rgba(10, 14, 25, 0.7);
+          --accent: #6d28d9;
+          --accent2: #059669;
+        }
+      }
+
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        margin: 0;
+        color: var(--text);
+        background: radial-gradient(1200px 700px at 12% 6%, rgba(124, 58, 237, 0.28), transparent 55%),
+          radial-gradient(1000px 700px at 82% 18%, rgba(16, 185, 129, 0.18), transparent 55%),
+          radial-gradient(900px 700px at 55% 90%, rgba(59, 130, 246, 0.12), transparent 55%),
+          var(--bg);
+        font-family: "Work Sans", system-ui, -apple-system, Segoe UI, sans-serif;
+      }
+
+      .shell {
+        display: grid;
+        grid-template-columns: 320px minmax(0, 1fr);
+        min-height: 100vh;
+      }
+
+      @media (max-width: 980px) {
+        .shell {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .sidebar {
+        position: sticky;
+        top: 0;
+        align-self: start;
+        height: 100vh;
+        padding: 22px 18px;
+        border-right: 1px solid var(--border);
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.06), transparent 30%);
+        backdrop-filter: blur(10px);
+      }
+
+      @media (max-width: 980px) {
+        .sidebar {
+          position: relative;
+          height: auto;
+          border-right: none;
+          border-bottom: 1px solid var(--border);
+        }
+      }
+
+      .brand {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        padding: 14px 14px 12px;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        background: var(--panel);
+      }
+
+      .mark {
+        width: 44px;
+        height: 44px;
+        border-radius: 14px;
+        background: conic-gradient(from 210deg, var(--accent), var(--accent2), #3b82f6, var(--accent));
+        box-shadow: 0 18px 60px rgba(124, 58, 237, 0.28);
+      }
+
+      .title {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.1;
+      }
+
+      .title strong {
+        font-family: "Fraunces", serif;
+        font-size: 18px;
+        letter-spacing: 0.2px;
+      }
+
+      .title span {
+        font-size: 12px;
+        color: var(--muted);
+        margin-top: 4px;
+      }
+
+      .nav {
+        margin-top: 14px;
+        display: grid;
+        gap: 10px;
+      }
+
+      .nav button {
+        text-align: left;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 12px 12px;
+        background: var(--panel);
+        color: var(--text);
+        cursor: pointer;
+        font-weight: 650;
+        letter-spacing: 0.2px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: transform 120ms ease, border-color 120ms ease;
+      }
+
+      .nav button:hover {
+        transform: translateY(-1px);
+        border-color: rgba(124, 58, 237, 0.6);
+      }
+
+      .nav button[data-active="true"] {
+        border-color: rgba(124, 58, 237, 0.85);
+        box-shadow: 0 10px 35px rgba(124, 58, 237, 0.18);
+      }
+
+      .chip {
+        font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 11px;
+        padding: 4px 8px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        color: var(--muted);
+      }
+
+      .links {
+        margin-top: 14px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .links a {
+        font-size: 12px;
+        color: var(--muted);
+        text-decoration: none;
+        border-bottom: 1px dashed rgba(124, 58, 237, 0.45);
+        padding-bottom: 2px;
+      }
+
+      .content {
+        padding: 26px 26px 60px;
+        min-width: 0;
+      }
+
+      .panel {
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.04);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 20px 80px rgba(0, 0, 0, 0.22);
+        overflow: hidden;
+      }
+
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 14px 16px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .topbar h1 {
+        margin: 0;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.3px;
+        color: var(--muted);
+        font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      }
+
+      .topbar .meta {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .markdown-body {
+        padding: 18px 18px 30px;
+        background: transparent;
+        color: var(--text);
+      }
+
+      .markdown-body pre,
+      .markdown-body code {
+        font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      }
+
+      .markdown-body a {
+        color: var(--text);
+        text-decoration-color: rgba(124, 58, 237, 0.6);
+      }
+
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3 {
+        border-bottom-color: rgba(255, 255, 255, 0.1);
+      }
+
+      .loading {
+        padding: 18px;
+        color: var(--muted);
+        font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="mark" aria-hidden="true"></div>
+          <div class="title">
+            <strong>Filament Reveal</strong>
+            <span>Docs viewer (no build step)</span>
+          </div>
+        </div>
+
+        <nav class="nav" aria-label="Documentation navigation">
+          <button type="button" data-doc="README.md" data-title="README.md">
+            <span>README</span><span class="chip">start</span>
+          </button>
+          <button type="button" data-doc="CHANGELOG.md" data-title="CHANGELOG.md">
+            <span>Changelog</span><span class="chip">history</span>
+          </button>
+          <button type="button" data-doc="SECURITY.md" data-title="SECURITY.md">
+            <span>Security</span><span class="chip">policy</span>
+          </button>
+          <button type="button" data-doc="CONTRIBUTING.md" data-title="CONTRIBUTING.md">
+            <span>Contributing</span><span class="chip">guide</span>
+          </button>
+          <button type="button" data-doc="CODE_OF_CONDUCT.md" data-title="CODE_OF_CONDUCT.md">
+            <span>Code of Conduct</span><span class="chip">rules</span>
+          </button>
+        </nav>
+
+        <div class="links">
+          <a href="https://github.com/RawanD201/filament-reveal" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://packagist.org/packages/rawand201/filament-reveal" target="_blank" rel="noreferrer">Packagist</a>
+        </div>
+      </aside>
+
+      <main class="content">
+        <section class="panel">
+          <div class="topbar">
+            <h1 id="docTitle">README.md</h1>
+            <div class="meta">
+              <span id="status">ready</span>
+            </div>
+          </div>
+          <article id="doc" class="markdown-body">
+            <div class="loading">Loading…</div>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked@14.1.2/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.10.0/highlight.min.js"></script>
+    <script>
+      const docEl = document.getElementById("doc");
+      const titleEl = document.getElementById("docTitle");
+      const statusEl = document.getElementById("status");
+      const buttons = Array.from(document.querySelectorAll("button[data-doc]"));
+
+      marked.setOptions({
+        gfm: true,
+        breaks: false,
+        highlight(code, lang) {
+          try {
+            if (lang && hljs.getLanguage(lang)) {
+              return hljs.highlight(code, { language: lang }).value;
+            }
+            return hljs.highlightAuto(code).value;
+          } catch {
+            return code;
+          }
+        },
+      });
+
+      async function loadDoc(path, title) {
+        titleEl.textContent = title;
+        statusEl.textContent = "loading…";
+        docEl.innerHTML = '<div class="loading">Loading…</div>';
+
+        for (const b of buttons) b.dataset.active = String(b.dataset.doc === path);
+
+        try {
+          const res = await fetch(path, { cache: "no-store" });
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
+          const md = await res.text();
+          docEl.innerHTML = marked.parse(md);
+          docEl.querySelectorAll("pre code").forEach((block) => hljs.highlightElement(block));
+          statusEl.textContent = "ready";
+        } catch (e) {
+          statusEl.textContent = "error";
+          docEl.innerHTML = `
+            <div class="loading">
+              Failed to load <strong>${title}</strong>.<br/>
+              <span style="opacity:.85">(${String(e)})</span>
+            </div>
+          `;
+        }
+      }
+
+      function syncFromHash() {
+        const hash = (location.hash || "").replace(/^#/, "");
+        const target = buttons.find((b) => b.dataset.doc === hash) || buttons[0];
+        loadDoc(target.dataset.doc, target.dataset.title);
+      }
+
+      for (const button of buttons) {
+        button.addEventListener("click", () => {
+          location.hash = button.dataset.doc;
+        });
+      }
+
+      window.addEventListener("hashchange", syncFromHash);
+      syncFromHash();
+    </script>
+  </body>
+</html>
+
