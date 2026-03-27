@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Filament Reveal — screencasts</title>
+    <style>
+        :root { color-scheme: dark light; }
+        body {
+            font-family: system-ui, sans-serif;
+            max-width: 52rem;
+            margin: 0 auto;
+            padding: 1.5rem;
+            line-height: 1.5;
+        }
+        h1 { font-size: 1.35rem; margin-top: 0; }
+        section { margin-bottom: 2rem; }
+        h2 { font-size: 1.05rem; margin-bottom: 0.5rem; }
+        p { margin: 0 0 0.75rem; color: #555; }
+        @media (prefers-color-scheme: dark) {
+            p { color: #b0b0b0; }
+        }
+        video {
+            width: 100%;
+            max-height: 70vh;
+            border-radius: 8px;
+            background: #111;
+        }
+        .hint {
+            font-size: 0.875rem;
+            color: #555;
+            margin-top: 1.25rem;
+            padding: 0.75rem 1rem;
+            border-left: 4px solid #d0d7de;
+            background: rgba(0, 0, 0, 0.04);
+            max-width: 42rem;
+        }
+        @media (prefers-color-scheme: dark) {
+            .hint {
+                color: #b0b0b0;
+                border-left-color: #484f58;
+                background: rgba(255, 255, 255, 0.06);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Filament Reveal — demo videos</h1>
+    <p>Open this file in your browser after cloning the repo (<code>docs/screencasts/index.html</code>), or use the embedded players on the GitHub README.</p>
+
+    <section>
+        <h2>Main demo</h2>
+        <p>Masked values, eye toggle, encrypted reveal, copy.</p>
+        <video controls playsinline src="main-demo.webm"></video>
+    </section>
+
+    <section>
+        <h2>Authentication (<code>requiresAuthentication()</code>)</h2>
+        <p>Password confirmation in the modal before reveal.</p>
+        <video controls playsinline src="authenticate.webm"></video>
+    </section>
+
+    <section>
+        <h2>Infolist (<code>RevealEntry</code>)</h2>
+        <p>Reveal on a view / infolist page.</p>
+        <video controls playsinline src="infolist.webm"></video>
+    </section>
+
+    <p class="hint"><strong>Note:</strong> use each player’s volume control if you need sound. These files are <strong>WebM</strong>; use a current Chromium-based or Firefox browser if playback fails.</p>
+</body>
+</html>

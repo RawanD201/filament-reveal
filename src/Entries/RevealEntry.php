@@ -36,8 +36,6 @@ class RevealEntry extends Entry
         $this->requiresAuthentication = config('filament-reveal.require_authentication', false);
     }
 
-    // ── Mask helpers ──────────────────────────────────────────────────────────
-
     public function mask(string $mask): static
     {
         $this->mask = $this->resolveMask($mask);
@@ -65,8 +63,6 @@ class RevealEntry extends Entry
         return $this->mask;
     }
 
-    // ── Revealed color ────────────────────────────────────────────────────────
-
     public function revealedColor(string $color): static
     {
         $this->revealedColor = $color;
@@ -79,8 +75,6 @@ class RevealEntry extends Entry
         return $this->revealedColor;
     }
 
-    // ── Authentication ────────────────────────────────────────────────────────
-
     public function requiresAuthentication(bool|Closure $required = true): static
     {
         $this->requiresAuthentication = $required;
@@ -92,8 +86,6 @@ class RevealEntry extends Entry
     {
         return (bool) $this->evaluate($this->requiresAuthentication);
     }
-
-    // ── Private ───────────────────────────────────────────────────────────────
 
     private function resolveMask(string $mask): string
     {

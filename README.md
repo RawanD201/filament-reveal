@@ -8,6 +8,26 @@
 
 A secure, production-ready Filament package for safely revealing sensitive data — API keys, tokens, emails, and secrets — on demand in both **tables** and **infolists**, with optional password authentication, rate limiting, audit logging, and full dark mode support.
 
+### Demo screencasts
+
+**WebM** clips play inline below on **github.com** (in this README). If a player does not show (e.g. on Packagist or an older browser), clone the repo and open [`docs/screencasts/index.html`](docs/screencasts/index.html) locally for all three in one page.
+
+**Main demo** — masking, toggle, encrypted reveal, copy:
+
+<video controls playsinline muted width="100%" src="https://raw.githubusercontent.com/RawanD201/filament-reveal/main/docs/screencasts/main-demo.webm"></video>
+
+**Authentication** — `requiresAuthentication()`, password modal:
+
+<video controls playsinline muted width="100%" src="https://raw.githubusercontent.com/RawanD201/filament-reveal/main/docs/screencasts/authenticate.webm"></video>
+
+**Infolist** — `RevealEntry` on a view page:
+
+<video controls playsinline muted width="100%" src="https://raw.githubusercontent.com/RawanD201/filament-reveal/main/docs/screencasts/infolist.webm"></video>
+
+> **Note:** The videos start **muted** — use the player’s volume control if you need audio. If an embed does not appear (for example on Packagist or in some browsers), clone the repository and open [`docs/screencasts/index.html`](docs/screencasts/index.html) in your browser.
+
+> Screencasts live in [`docs/screencasts/`](docs/screencasts/) but are **not** shipped in the Composer / Packagist zip (`export-ignore`) so installs stay small.
+
 ---
 
 ## Features

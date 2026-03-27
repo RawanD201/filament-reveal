@@ -92,8 +92,6 @@ class RevealTokenGenerator
         return hash_equals($expected, $identifier);
     }
 
-    // ── private helpers ───────────────────────────────────────────────────────
-
     /**
      * A stable fingerprint for the current session.
      * Hashed so the raw session ID is never embedded in the token.

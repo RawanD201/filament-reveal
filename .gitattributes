@@ -12,3 +12,4 @@
 /node_modules export-ignore
 /build export-ignore
 /coverage export-ignore
+/docs export-ignore
