@@ -10,23 +10,21 @@ A secure, production-ready Filament package for safely revealing sensitive data 
 
 ### Demo screencasts
 
-**WebM** clips play inline below on **github.com** (in this README). If a player does not show (e.g. on Packagist or an older browser), clone the repo and open [`docs/screencasts/index.html`](docs/screencasts/index.html) locally for all three in one page.
+GitHub **does not render `<video>` in README files**, so embeds here would stay blank. Demos are **WebM** files in the repo, shown on a small **GitHub Pages** site (no YouTube/Vimeo — same files as [`docs/screencasts/`](docs/screencasts/)):
 
-**Main demo** — masking, toggle, encrypted reveal, copy:
+**[Watch the demos in your browser →](https://rawand201.github.io/filament-reveal/screencasts/index.html)**
 
-<video controls playsinline muted width="100%" src="https://raw.githubusercontent.com/RawanD201/filament-reveal/main/docs/screencasts/main-demo.webm"></video>
+| Clip | What it shows |
+|------|----------------|
+| **main-demo.webm** | Main flow — mask, toggle, reveal, copy |
+| **authenticate.webm** | `requiresAuthentication()` / password modal |
+| **infolist.webm** | `RevealEntry` on a view page |
 
-**Authentication** — `requiresAuthentication()`, password modal:
+**Offline:** clone the repo and open `docs/screencasts/index.html` in your browser.
 
-<video controls playsinline muted width="100%" src="https://raw.githubusercontent.com/RawanD201/filament-reveal/main/docs/screencasts/authenticate.webm"></video>
+> **First-time setup:** in the repo go to **Settings → Pages → Build and deployment**, set **Source** to **GitHub Actions**, then open the **Actions** tab and run **Pages** (or push to `main`). The live URL is usually `https://<user>.github.io/filament-reveal/…`.
 
-**Infolist** — `RevealEntry` on a view page:
-
-<video controls playsinline muted width="100%" src="https://raw.githubusercontent.com/RawanD201/filament-reveal/main/docs/screencasts/infolist.webm"></video>
-
-> **Note:** The videos start **muted** — use the player’s volume control if you need audio. If an embed does not appear (for example on Packagist or in some browsers), clone the repository and open [`docs/screencasts/index.html`](docs/screencasts/index.html) in your browser.
-
-> Screencasts live in [`docs/screencasts/`](docs/screencasts/) but are **not** shipped in the Composer / Packagist zip (`export-ignore`) so installs stay small.
+> Screencasts are **not** shipped in the Composer / Packagist zip (`export-ignore`) so installs stay small.
 
 ---
 
