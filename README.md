@@ -1,8 +1,6 @@
 # Filament Reveal
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/RawanD201/filament-reveal/main/docs/filament_reveal.jpeg" alt="Filament Reveal" width="520" />
-</p>
+<img src="https://raw.githubusercontent.com/RawanD201/filament-reveal/main/docs/filament_reveal.jpeg" alt="Filament Reveal" width="1000" />
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/rawand201/filament-reveal.svg?style=flat-square)](https://packagist.org/packages/rawand201/filament-reveal)
 [![Total Downloads](https://img.shields.io/packagist/dt/rawand201/filament-reveal.svg?style=flat-square)](https://packagist.org/packages/rawand201/filament-reveal)
