@@ -47,7 +47,7 @@ A secure, production-ready Filament package for safely revealing sensitive data 
 
 | | Version |
 |---|---|
-| PHP | ^8.2 |
+| PHP | ^8.2 (8.2 / 8.3 / 8.4 / 8.5) |
 | Laravel | 10.x / 11.x / 12.x / 13.x |
 | Filament | ^4.0 \| ^5.0 |
 
@@ -458,7 +458,7 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 
 ## Compatibility
 
-- **PHP**: ^8.2
+- **PHP**: ^8.2 (8.2, 8.3, 8.4, 8.5)
 - **Laravel**: 10.x / 11.x / 12.x / 13.x
 - **Filament**: ^4.0 \| ^5.0
 
