@@ -12,15 +12,15 @@ A secure, production-ready Filament package for safely revealing sensitive data 
 
 **Main demo** — mask, toggle, reveal, copy:
 
-![Main demo screencast](https://raw.githubusercontent.com/RawanD201/filament-reveal/main/docs/screencasts/main-demo.gif)
+<img src="https://raw.githubusercontent.com/RawanD201/filament-reveal/main/docs/screencasts/main-demo.gif" alt="Main demo screencast" width="1000" />
 
 **Authentication** — `requiresAuthentication()`, password modal:
 
-![Authentication screencast](https://raw.githubusercontent.com/RawanD201/filament-reveal/main/docs/screencasts/authenticate.gif)
+<img src="https://raw.githubusercontent.com/RawanD201/filament-reveal/main/docs/screencasts/authenticate.gif" alt="Authentication screencast" width="1000" />
 
 **Infolist** — `RevealEntry` on a view page:
 
-![Infolist screencast](https://raw.githubusercontent.com/RawanD201/filament-reveal/main/docs/screencasts/infolist.gif)
+<img src="https://raw.githubusercontent.com/RawanD201/filament-reveal/main/docs/screencasts/infolist.gif" alt="Infolist screencast" width="1000" />
 
 ---
 
