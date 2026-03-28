@@ -10,21 +10,23 @@ A secure, production-ready Filament package for safely revealing sensitive data 
 
 ### Demo screencasts
 
-GitHub **does not render `<video>` in README files**, so embeds here would stay blank. Demos are **WebM** files in the repo, shown on a small **GitHub Pages** site (no YouTube/Vimeo — same files as [`docs/screencasts/`](docs/screencasts/)):
+GitHub **README files cannot play `<video>`** — only **images** (including animated **GIF**) render inline. Below are GIF previews generated from the same recordings. For **full quality and audio**, use the **WebM** files in [`docs/screencasts/`](docs/screencasts/) or open [`docs/screencasts/index.html`](docs/screencasts/index.html) locally in your browser after cloning.
 
-**[Watch the demos in your browser →](https://rawand201.github.io/filament-reveal/screencasts/index.html)**
+**Main demo** — mask, toggle, reveal, copy:
 
-| Clip | What it shows |
-|------|----------------|
-| **main-demo.webm** | Main flow — mask, toggle, reveal, copy |
-| **authenticate.webm** | `requiresAuthentication()` / password modal |
-| **infolist.webm** | `RevealEntry` on a view page |
+![Main demo screencast](https://raw.githubusercontent.com/RawanD201/filament-reveal/main/docs/screencasts/main-demo.gif)
 
-**Offline:** clone the repo and open `docs/screencasts/index.html` in your browser.
+**Authentication** — `requiresAuthentication()`, password modal:
 
-> **First-time setup:** in the repo go to **Settings → Pages → Build and deployment**, set **Source** to **GitHub Actions**, then open the **Actions** tab and run **Pages** (or push to `main`). The live URL is usually `https://<user>.github.io/filament-reveal/…`.
+![Authentication screencast](https://raw.githubusercontent.com/RawanD201/filament-reveal/main/docs/screencasts/authenticate.gif)
 
-> Screencasts are **not** shipped in the Composer / Packagist zip (`export-ignore`) so installs stay small.
+**Infolist** — `RevealEntry` on a view page:
+
+![Infolist screencast](https://raw.githubusercontent.com/RawanD201/filament-reveal/main/docs/screencasts/infolist.gif)
+
+> **Note:** GIFs are muted and compressed for the README. The matching `.webm` files in the repo are higher quality.
+
+> Screencasts live under [`docs/screencasts/`](docs/screencasts/) but are **not** shipped in the Composer / Packagist zip (`export-ignore`) so installs stay small.
 
 ---
 
