@@ -10,8 +10,6 @@ A secure, production-ready Filament package for safely revealing sensitive data 
 
 ### Demo screencasts
 
-GitHub **README files cannot play `<video>`** — only **images** (including animated **GIF**) render inline. Below are GIF previews generated from the same recordings. For **full quality and audio**, use the **WebM** files in [`docs/screencasts/`](docs/screencasts/) or open [`docs/screencasts/index.html`](docs/screencasts/index.html) locally in your browser after cloning.
-
 **Main demo** — mask, toggle, reveal, copy:
 
 ![Main demo screencast](https://raw.githubusercontent.com/RawanD201/filament-reveal/main/docs/screencasts/main-demo.gif)
@@ -23,10 +21,6 @@ GitHub **README files cannot play `<video>`** — only **images** (including ani
 **Infolist** — `RevealEntry` on a view page:
 
 ![Infolist screencast](https://raw.githubusercontent.com/RawanD201/filament-reveal/main/docs/screencasts/infolist.gif)
-
-> **Note:** GIFs are muted and compressed for the README. The matching `.webm` files in the repo are higher quality.
-
-> Screencasts live under [`docs/screencasts/`](docs/screencasts/) but are **not** shipped in the Composer / Packagist zip (`export-ignore`) so installs stay small.
 
 ---
 
